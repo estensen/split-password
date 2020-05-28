@@ -22,6 +22,7 @@ password_len = len(password)
 shares = []
 last_share = password
 for i in range(n_shares-1):
+    # token_urlsafe for pretty print
     secret = secrets.token_urlsafe(password_len-1)
     shares.append(secret)
     last_share = xor_strings(last_share, secret) 
